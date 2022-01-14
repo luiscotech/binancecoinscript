@@ -43,12 +43,12 @@ class Binance_websocket():
             tupTime = time.localtime(msg['data']['E']/1000)
             otherStyleTime = time.strftime("%Y-%m-%d %H:%M:%S", tupTime)
             msg['data']['E']=otherStyleTime
-    
+
 
         print(msg)
 
-        
-            
+
+
         if 'ping' in msg:
             ws.send(json.dumps({"pong": msg["ping"]})) # Recibir el ping enviado por la plataforma, devolver pong, de lo contrario se desconectará
 
@@ -69,5 +69,5 @@ class Binance_websocket():
 
 
 
-ws  = Binance_websocket("BTCUSDT")
+ws  = Binance_websocket("DOGEUSDT")
 ws.run()
